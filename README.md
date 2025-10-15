@@ -1,4 +1,4 @@
-[readme.md](https://github.com/user-attachments/files/22919482/readme.html)
+[README.md](https://github.com/user-attachments/files/22919482/readme.html)
 # KANYARA $ WEB-DESIGNERS K.LTD — Static Website
 
 This is a minimal 5-page static website (HTML/CSS/JS) for **KANYARA $ WEB-DESIGNERS K.LTD**.
