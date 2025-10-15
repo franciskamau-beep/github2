@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Collaborator details and contacts KANYARA $ WEB-DESIGNERS K.LTD" />
+  <meta name="keywords" content="collaborators, partners, freelance designers" />
+  <meta name="author" content="Francis Kamau" />
+  <meta http-equiv="revised" content="09-10-2025" />
+  <meta http-equiv="refresh" content="60" />
+  <meta http-equiv="cookie" content="expires 08-10-2026 23:59:59 GMT" />
+  <title>Bookings — KANYARA $ WEB-DESIGNERS K.LTD</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="logo" href="index.html">KANYARA $ WEB-DESIGNERS K.LTD</a>
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="collaborators.html">Collaborators</a></li>
+        <li><a href="contact.html">Hotlines & Links</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Bookings</h1>
+    <p>Use the form below to request a design or consultation. We'll confirm availability by email or phone.</p>
+
+    <div class="hero">
+      <img src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=1600&q=60" alt="booking" />
+    </div>
+
+    <section class="form-section">
+      <form id="bookingForm" action="#" method="post" onsubmit="return handleBooking(event)">
+        <label>
+          Full name
+          <input type="text" name="name" id="name" required />
+        </label>
+
+        <label>
+          Email
+          <input type="email" name="email" id="email" required />
+        </label>
+
+        <label>
+          Phone
+          <input type="tel" name="phone" id="phone" />
+        </label>
+
+        <label>
+          Preferred date
+          <input type="date" name="date" id="date" />
+        </label>
+
+        <label>
+          Service required
+          <select name="service" id="service">
+            <option>Website design</option>
+            <option>Website maintenance</option>
+            <option>Booking system / form</option>
+            <option>Consulting</option>
+          </select>
+        </label>
+
+        <label>
+          Additional details
+          <textarea name="details" id="details" rows="4"></textarea>
+        </label>
+
+        <button type="submit" class="btn">Submit Booking Request</button>
+      </form>
+
+      <div id="bookingResult" class="booking-result" aria-live="polite"></div>
+    </section>
+
+    <footer class="site-footer">
+      <p>© <span id="year-3"></span> KANYARA $ WEB-DESIGNERS K.LTD</p>
+    </footer>
+  </main>
+
+  <script>
+    // Basic client-side handler (keeps data local; replace with server call when ready)
+    function handleBooking(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const service = document.getElementById('service').value;
+      const result = document.getElementById('bookingResult');
+
+      if (!name || !email) {
+        result.textContent = 'Please provide your name and email.';
+        return false;
+      }
+
+      result.innerHTML = `<strong>Thank you, ${escapeHtml(name)}.</strong> Your booking request for "<em>${escapeHtml(service)}</em>" has been received. We'll contact you at ${escapeHtml(email)}.`;
+      e.target.reset();
+      return false;
+    }
+
+    // small utility to avoid inserting raw HTML
+    function escapeHtml(str) {
+      return str.replace(/[&<>"']/g, function (m) {
+        return ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' })[m];
+      });
+    }
+  </script>
+</body>
+</html>
